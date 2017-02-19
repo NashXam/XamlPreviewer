@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="XamlPreviewer.App">
+	<Application.Resources>
+      <ResourceDictionary>
+			
+        	<Color x:Key="asphaltLight">#6D8491</Color>
+			<Color x:Key="asphaltPrimary">#5c7d90</Color>
+        	<Color x:Key="asphaltDark">#233743</Color>
+
+        	<Color x:Key="indigoLight">#5362B6</Color>
+        	<Color x:Key="indigoPrimary">#3F51B5</Color>
+        	<Color x:Key="indigoDark">#172468</Color>
+        	
+        	<Color x:Key="yellowLight">#FFE45C</Color>
+        	<Color x:Key="yellowPrimary">#F5D740</Color>
+        	<Color x:Key="yellowDark">#D1B941</Color>
+
+        	<Color x:Key="grayUltraLight">#FFFFFF</Color>
+        	<Color x:Key="grayLight">#F2F2F2</Color>
+        	<Color x:Key="grayPrimary">#B9B9B9</Color>
+        	<Color x:Key="grayDark">#959595</Color>
+        	<Color x:Key="grayMedium">#B9B9B9</Color>
+
+			<Color x:Key="darkSlateGray">#2f3e4f</Color>
+			<Color x:Key="steelBlue">#3192b3</Color>
+
+			<Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource asphaltPrimary}" />
+				<Setter Property="PlaceholderColor" Value="{StaticResource asphaltLight}" />
+            </Style>
+			<Style TargetType="Entry" BasedOn="{StaticResource entryStyle}" />
+
+			<OnPlatform x:Key="buttonMinWidth" x:TypeArguments="x:Double" iOS="150" Android="88" WinPhone="100" />
+          	<OnPlatform x:Key="buttonWidth" x:TypeArguments="x:Double" iOS="150" Android="-1" />
+			<OnPlatform x:Key="buttonWidthLayoutOffset" x:TypeArguments="x:Double" iOS="-125" />
+			<OnPlatform x:Key="buttonHeight" x:TypeArguments="x:Double" iOS="40" Android="48" WinPhone="40" />
+			<OnPlatform x:Key="buttonPadding" x:TypeArguments="Thickness" iOS="0, 10, 0, 10" Android="0, 6, 0, 6" />
+			
+            <Style x:Key="buttonStyle" TargetType="Button">
+				<Setter Property="MinimumWidthRequest" Value="{StaticResource buttonMinWidth}" />
+				<Setter Property="MinimumHeightRequest" Value="{StaticResource buttonHeight}" />
+				<Setter Property="HeightRequest" Value="{StaticResource buttonHeight}" />
+                <Setter Property="TextColor" Value="{StaticResource grayUltraLight}" />
+                <Setter Property="BorderRadius" Value="2" />
+                <Setter Property="BackgroundColor" Value="{StaticResource steelBlue}" />
+            </Style>
+
+			
+        </ResourceDictionary>
+	</Application.Resources>
+</Application>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:XamlPreviewer" 
+	x:Class="XamlPreviewer.StartPage"
+	BackgroundColor="{StaticResource grayUltraLight}">
+
+	<ContentPage.Content>
+		<StackLayout 
+			VerticalOptions="CenterAndExpand" 
+			HorizontalOptions="CenterAndExpand">
+			<Image x:Name="imgStartLogo" Source="xamagon.png" 
+				Scale="1" 
+				WidthRequest="150" />
+			<Button x:Name="btnSignUp" Text="Sign Up"
+				WidthRequest="{StaticResource buttonWidth}"
+				Margin="{StaticResource buttonPadding}"
+				Style="{StaticResource buttonStyle}"
+				BackgroundColor="{StaticResource yellowPrimary}"/>
+			<Button x:Name="btnLogin" Text="Login"
+				WidthRequest="{StaticResource buttonWidth}"
+				Margin="{StaticResource buttonPadding}"
+				Style="{StaticResource buttonStyle}"/>
+		</StackLayout>
+	</ContentPage.Content>
+	
+</ContentPage>

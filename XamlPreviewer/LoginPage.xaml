@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	xmlns:local="clr-namespace:XamlPreviewer" 
+	x:Class="XamlPreviewer.LoginPage"
+	Title="Login">
+
+	<ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Double x:Key="imageSize">150</x:Double>
+            <x:Double x:Key="imageLayoutOffset">-75</x:Double>
+
+			<OnPlatform x:Key="entryWidth" x:TypeArguments="x:Double" iOS="250" Android="250" WinPhone="250" />
+			<OnPlatform x:Key="entryWidthLayoutOffset" x:TypeArguments="x:Double" iOS="-125" Android="-125" WinPhone="-125" />
+			<OnPlatform x:Key="entryHeight" x:TypeArguments="x:Double" iOS="42" Android="48" WinPhone="48" />
+
+			<OnPlatform x:Key="entryTextColor" x:TypeArguments="Color" iOS="{StaticResource asphaltPrimary}" Android="{StaticResource grayUltraLight}" WinPhone="{StaticResource grayUltraLight}" />
+			<OnPlatform x:Key="entryPlaceholderTextColor" x:TypeArguments="Color" iOS="{StaticResource asphaltLight}" Android="{StaticResource grayLight}" WinPhone="{StaticResource grayLight}" />
+			<Style x:Key="entryStyle" TargetType="Entry">
+                <Setter Property="TextColor" Value="{StaticResource entryTextColor}" />
+				<Setter Property="PlaceholderColor" Value="{StaticResource entryPlaceholderTextColor}" />
+            </Style>
+
+            <OnPlatform x:Key="buttonColor" x:TypeArguments="Color" iOS="{StaticResource grayUltraLight}" Android="{StaticResource grayUltraLight}" WinPhone="{StaticResource grayUltraLight}" />
+			
+			<Style TargetType="NavigationPage">
+				<Setter Property="BarTextColor" Value="{StaticResource entryTextColor}"/>
+			</Style>
+
+			<OnPlatform x:Key="gridPadding" x:TypeArguments="Thickness" iOS="10, 20, 10, 10" Android="56, 48, 16, 0" WinPhone="16, 16, 16, 0" />
+			<OnPlatform x:Key="sidePadding" x:TypeArguments="x:Double" iOS="50" Android="56" WinPhone="50" />
+			<OnPlatform x:Key="topPadding" x:TypeArguments="x:Double" iOS="20" Android="48" WinPhone="16" />
+			<OnPlatform x:Key="bottomPadding" x:TypeArguments="x:Double" iOS="10" Android="0" WinPhone="0" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+	
+	<ContentPage.Content>
+		<AbsoluteLayout>
+
+			<!-- Logo Section -->
+			<RelativeLayout 
+				BackgroundColor="{StaticResource grayUltraLight}"
+				AbsoluteLayout.LayoutBounds="0, 0, 1, .4" 
+				AbsoluteLayout.LayoutFlags="All">
+				<Image x:Name="imgLoginLogo" 
+					Source="xamagon.png" 
+					Scale="1" 
+					WidthRequest="{StaticResource imageSize}"
+					HeightRequest="{StaticResource imageSize}"
+			        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+			            Property=Width,Factor=.5,Constant={StaticResource imageLayoutOffset}}"
+					RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+			            Property=Height,Factor=.5,Constant={StaticResource imageLayoutOffset}}" />
+			</RelativeLayout>
+
+			<!-- Input Section -->
+			<RelativeLayout
+				BackgroundColor="{StaticResource steelBlue}"
+				AbsoluteLayout.LayoutBounds="1, 1, 1, .6" 
+				AbsoluteLayout.LayoutFlags="All"
+				Padding="{StaticResource gridPadding}">
+				<Entry x:Name="txtEmail" 
+					Placeholder="Email Address" 
+					WidthRequest="{StaticResource entryWidth}"
+					HeightRequest="{StaticResource entryHeight}"
+					HorizontalOptions="FillAndExpand" 
+					Style="{StaticResource entryStyle}"
+			        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToParent,
+			            Property=Width,Factor=0,Constant={StaticResource sidePadding}}"
+					RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToParent,
+			            Property=Y,Factor=0,Constant={StaticResource topPadding}}">
+				</Entry>
+				<Entry x:Name="txtPassword" Placeholder="Password" 
+					WidthRequest="{StaticResource entryWidth}"
+					HeightRequest="{StaticResource entryHeight}"
+					IsPassword="true" HorizontalOptions="FillAndExpand" 
+					Style="{StaticResource entryStyle}"
+			        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+			            ElementName=txtEmail,Property=X,Factor=1,Constant=0}"
+					RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+			            ElementName=txtEmail,Property=Y,Factor=1,Constant={StaticResource entryHeight}}">
+				</Entry>
+				<Button x:Name="btnLogin" Text="Login" 
+					Style="{StaticResource buttonStyle}"
+					BackgroundColor="{StaticResource buttonColor}"
+					TextColor="{StaticResource asphaltPrimary}"
+					WidthRequest="{StaticResource buttonWidth}"
+					Margin="{StaticResource buttonPadding}"
+			        RelativeLayout.XConstraint="{ConstraintExpression Type=RelativeToView,
+			            ElementName=txtPassword,Property=X,Factor=1,Constant=0}"
+					RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView,
+			            ElementName=txtPassword,Property=Y,Factor=1,Constant={StaticResource entryHeight}}">
+					<Button.BackgroundColor>
+						<OnPlatform x:TypeArguments="Color" iOS="{StaticResource yellowPrimary}" Android="{StaticResource yellowPrimary}" />
+					</Button.BackgroundColor>
+				</Button>
+			</RelativeLayout>
+			
+		</AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>
